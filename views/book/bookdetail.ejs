@@ -1,0 +1,36 @@
+<h1><%= results[0].name %></h1>
+<form>
+    <input type="hidden" value="<%= bId %>" name="bId">
+    <table class="table">
+        <tr>
+            <td colspan="2"><img src="<%= results[0].img %>" alt="<%= results[0].img %>" style="width: 200px;height:300px; "></td>
+        </tr>
+        <tr>
+            <td><%= results[0].name %></td>
+            <td>저자 : <%= results[0].author %></td>
+        </tr>
+        <tr>
+            <td> <%= results[0].price %>원</td>
+            <% if (loggined === true) { %>
+                <td>수량 : <input type="text" name="qty"></td></tr> 
+                <tr>
+                    <td>
+                        <button type="submit" formaction = "/book/cart"  formmethod="post" >장바구니</button>
+                    </td>
+                    <td>
+                        <button type="submit" formaction = "/book/purchase" formmethod="post">구매</button>
+                    </td>
+                </tr>
+            <% } else { %>
+                <td></td></tr>
+                <tr>
+                    <td>
+                        <button type="submit">장바구니</button>
+                    </td>
+                    <td>
+                        <button type="submit">구매</button>
+                    </td>
+                </tr>
+            <% } %>
+    </table>
+</form>

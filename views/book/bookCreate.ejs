@@ -1,0 +1,36 @@
+<% if(kindOfDoc == 'C') { %>
+<h1>book Create</h1>
+<form action="/book/create_process" method="post">
+<% } else { %>
+    <h1>book Update</h1>
+    <form action="/book/update_process/<%=bId%>" method="post">
+<% } %>
+    <p>
+        <input type="text" name="name" value="<%=name%>" style="width: 400px; border-color:antiquewhite;" placeholder="name">
+    </p>
+    <p>
+        <input type="text" name="publisher" value="<%=publisher%>" style="width: 400px; border-color:antiquewhite;" placeholder="publisher">
+    </p>
+    <p>
+        <input type="text" name="author" value="<%=author%>" style="width: 400px; border-color:antiquewhite;" placeholder="author">
+    </p>
+    <p>
+        <input type="text" name="stock" value="<%=stock%>" style="width: 400px; border-color:antiquewhite;" placeholder="stock (Int)">
+    </p>
+    <p>
+        <input type="text" name="pubdate" value="<%=pubdate%>" style="width: 400px; border-color:antiquewhite;" placeholder="pubdate (dateOfEightDigit)">
+    </p>
+    <p>
+        <input type="text" name="price" value="<%=price%>" style="width: 400px; border-color:antiquewhite;" placeholder="price">
+    </p>
+    <p>
+        <input type="text" name="ISBN" value="<%=ISBN%>" style="width: 400px; border-color:antiquewhite;" placeholder="ISBN">
+    </p>
+    <p>
+        <input type="text" name="ebook" value="<%=ebook%>" style="width: 400px; border-color:antiquewhite;" placeholder="ebook (Y / N)">
+    </p>
+    <p>
+        <input type="text" name="nation" value="<%=nation%>" style="width: 400px; border-color:antiquewhite;" placeholder="nation">
+    </p>
+    <p><input type="submit"></p>
+</form>
