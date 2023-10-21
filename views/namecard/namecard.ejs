@@ -1,0 +1,17 @@
+<h1>namecard</h1>
+<table class="table table-sm table-bordered" style="width: 600px">
+    <%
+        var i = 0;
+
+        while(i < results.length) { %>
+            <tr>
+                <td class="td td-sm"><%=results[i].id%> </td>
+                <td><%=results[i].name%> </td>
+                <td><%=results[i].phone%> </td>
+                <td><%=results[i].address%> </td>
+                <td><%=results[i].email%> </td>
+            </tr>
+        <%
+            i++;
+        }   %>
+</table>

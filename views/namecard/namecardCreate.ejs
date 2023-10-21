@@ -1,0 +1,21 @@
+<% if(kindOfDoc == 'C') { %>
+    <h1>namecard 생성</h1>
+    <form action="/namecard/create_process" method="post">
+<% } else { %>
+    <h1>namecard 변경</h1>
+    <form action="/namecard/update_process/<%=pId%>" method="post">
+<% } %>
+    <p>
+        <input type="text" name="name" value="<%=name%>" style="width: 400px; border-color:antiquewhite;" placeholder="name">
+    </p>
+    <p>
+        <input type="text" name="phone" value="<%=phone%>" style="width: 400px; border-color:antiquewhite;" placeholder="phone">
+    </p>
+    <p>
+        <input type="text" name="address" value="<%=address%>" style="width: 400px; border-color:antiquewhite;" placeholder="address">
+    </p>
+    <p>
+        <input type="text" name="email" value="<%=email%>" style="width: 400px; border-color:antiquewhite;" placeholder="email">
+    </p>
+    <p><input type="submit"></p>
+</form>
