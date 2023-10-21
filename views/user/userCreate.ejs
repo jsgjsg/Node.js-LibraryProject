@@ -1,0 +1,34 @@
+<% if(kindOfDoc == 'C') { %>
+    <h1>user Create</h1>
+    <form action="/user/create_process" method="post">
+<% } else { %>
+    <h1>user Update</h1>
+    <form action="/user/update_process/<%=logId%>" method="post">
+<% } %>
+    <p>
+        <input type="text" name="loginid" value="<%=loginid%>" style="width: 400px; border-color:antiquewhite;" placeholder="loginid">
+    </p>
+    <p>
+        <input type="text" name="password" value="<%=password%>" style="width: 400px; border-color:antiquewhite;" placeholder="password">
+    </p>
+    <p>
+        <input type="text" name="name" value="<%=name%>" style="width: 400px; border-color:antiquewhite;" placeholder="name">
+    </p>
+    <p>
+        <input type="text" name="address" value="<%=address%>" style="width: 400px; border-color:antiquewhite;" placeholder="address">
+    </p>
+    <p>
+        <input type="text" name="tel" value="<%=tel%>" style="width: 400px; border-color:antiquewhite;" placeholder="tel">
+    </p>
+    <p>
+        <input type="text" name="birth" value="<%=birth%>" style="width: 400px; border-color:antiquewhite;" placeholder="birth">
+    </p>
+    <p>
+        <input type="text" name="class" value="<%=classA%>" style="width: 400px; border-color:antiquewhite;" placeholder="class (A / B)">
+    </p>
+    <p>
+        <input type="text" name="grade" value="<%=grade%>" style="width: 400px; border-color:antiquewhite;" placeholder="grade (A / B)">
+    </p>
+    
+    <p><input type="submit"></p>
+</form>
