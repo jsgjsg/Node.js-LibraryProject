@@ -1,0 +1,61 @@
+<h1>검색화면</h1>
+<form action="/<%=kind%>/search" method="post">
+    <div class="row mb-3">
+        <label for="inputEmail3"class="col-sm-2 col-form-label"><%=kind%> Search</label>
+        <div class="col-sm-5">
+            <% var placeholder; if(kind == "book") { placeholder = "책 제목을 입력하세요"; }
+            else if (kind == "namecard") { placeholder = "이름을 입력하세요"; } else if (kind == "calendar") { placeholder = "title을 입력하세요"; } %>
+            <input type="id" class="form-control" placeholder="<%= placeholder %>" name="keyword" maxlength="50">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">검색</button> 
+</form>
+<p>
+    <% if(listyn == "Y") { %>
+        <% if(kind == "book") { %>
+            <table class="table">
+                <tr>
+                    <th>img</th> <th>name</th> <th>author</th> <th>price</th>
+                </tr>
+                <% var i = 0; while(i < bs.length){ %>
+                    <tr>
+                        <td><img src="<%= bs[i].img%>" style="width: 100px; height: 100px;"></td>
+                        <td><a href="/book_detail/<%= bs[i].id%>"><%=bs[i].name%></a></td>
+                        <td><%= bs[i].author%></td>
+                        <td><%= bs[i].price%>원</td>
+                    </tr>
+                <% i++; }  %>
+            </table>
+        <% } else if(kind == "namecard") { %>
+            <table class="table">
+                <tr>
+                    <th>id</th> <th>name</th> <th>phone</th> <th>address</th> <th>email</th>
+                </tr>
+                <% var i = 0; while(i < ns.length){ %>
+                    <tr>
+                        <td><%= ns[i].id%></td>
+                        <td><%= ns[i].name%></td>
+                        <td><%= ns[i].phone%></td>
+                        <td><%= ns[i].address%></td>
+                        <td><%= ns[i].email%></td>
+                    </tr>
+                <% i++; }  %>
+            </table>
+        <% } else if(kind == "calendar") { %>
+            <table class="table">
+                <tr>
+                    <th>id</th> <th>title</th> <th>description</th> <th>created</th> <th>author_id</th>
+                </tr>
+                <% var i = 0; while(i < cs.length){ %>
+                    <tr>
+                        <td><%= cs[i].id%></td>
+                        <td><%= cs[i].title%></td>
+                        <td><%= cs[i].description%></td>
+                        <td><%= cs[i].created%></td>
+                        <td><%= cs[i].author_id%></td>
+                    </tr>
+                <% i++; }  %>
+            </table>
+        <% } %>
+    <% } %>
+</p>

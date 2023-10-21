@@ -1,0 +1,31 @@
+<h1>장바구니</h1>
+<table class="table table-sm table-bordered" style="width: 600px">
+    <tr>
+        <th>cartid</th>
+        <th>custid</th>
+        <th>bookid</th>
+        <th>cartdate</th>
+        <th>qty</th>
+    </tr>
+    <% var i = 0;
+    while(i < results.length) { %>
+        <tr>
+            <td><%= results[i].cartid %></td>
+            <td><%= results[i].custid %></td>
+            <td><%= results[i].bookid %></td>
+            <td><%= results[i].cartdate %></td>
+            <td><%= results[i].qty %></td>
+            <form action="/book/cart-to-purchase" method="post">
+                <input type="hidden" name="cartid" value="<%=results[i].cartid %>">
+                <td><button type="submit">구매하기</button></td>
+            </form>
+        </tr>
+    <%
+        i++;
+    }   %>
+</table>
+<% if (loggined === true) { %>
+    <form action="/book/cart-to-purchase-all" method="post">
+        <button type="submit" class="btn btn-primary">전체구매</button>
+    </form>
+<% } %>

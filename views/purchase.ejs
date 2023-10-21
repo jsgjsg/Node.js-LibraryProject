@@ -1,0 +1,45 @@
+<h1>구매</h1>
+<table class="table table-sm table-bordered" style="width: 630px">
+    <tr>
+        <th>purchaseid</th>
+        <th>custid</th>
+        <th>bookid</th>
+        <th>purchasedate</th>
+        <th>qty</th>
+        <th>cancel</th>
+        <th>refund</th>
+    </tr>
+    <%
+    var i = 0;
+    while(i < results.length) { %>
+        <tr>
+            <td><%= results[i].purchaseid %></td>
+            <td><%= results[i].custid %></td>
+            <td><%= results[i].bookid %></td>
+            <td><%= results[i].purchasedate %></td>
+            <td><%= results[i].qty %></td>
+            <td><%= results[i].cancel %></td>
+            <td><%= results[i].refund %></td>
+            <% if(results[i].cancel === 'N') { %>
+                    <form action="/book/purchase-cancel" method="post">
+                        <input type="hidden" name="purchaseid" value="<%=results[i].purchaseid %>">
+                        <input type="hidden" name="cancel" value="<%=results[i].cancel %>">
+                        <td><button type="submit">구매취소</button></td>
+                    </form>
+            <% } else {%>
+                <form action="/book/purchase-cancel" method="post">
+                    <input type="hidden" name="purchaseid" value="<%=results[i].purchaseid %>">
+                    <input type="hidden" name="cancel" value="<%=results[i].cancel %>">
+                    <td><button type="submit">재구매</button></td>
+                </form>
+                <form action="/book/purchase-delete" method="post">
+                    <input type="hidden" name="purchaseid" value="<%=results[i].purchaseid %>">
+                    <td><button type="submit">삭제</button></td>
+                </form>
+            <% } %>
+            
+        </tr>
+    <%
+        i++;
+    }   %>
+</table>
